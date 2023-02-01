@@ -13,6 +13,5 @@ int main() {
   } else{
     printf("O salário reajustado é de: %.2f", sal_inicial*1.1);
   }
-  
     return 0;
 }
