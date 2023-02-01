@@ -10,5 +10,6 @@ int main() {
     printf("Número fora do intervalo estipulado");
   } 
 
+
     return 0;
 }
