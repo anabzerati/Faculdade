@@ -31,13 +31,13 @@ public class Student {
 	public String getLetterGrade() {
 		String letterGrade = "";
 		
-		if(average >= 90) {
+		if(average >= 90.0) {
 			letterGrade = "A";
-		} else if(average >= 80) {
+		} else if(average >= 80.0) {
 			letterGrade = "B";
-		} else if(average >= 70) {
+		} else if(average >= 70.0) {
 			letterGrade = "C";
-		} else if(average >= 60) {
+		} else if(average >= 60.0) {
 			letterGrade = "D";
 		} else {
 			letterGrade = "E";
