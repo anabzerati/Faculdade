@@ -1,24 +1,32 @@
 package tarefinha1;
 
 public class Cachorro extends Animal{
-	private String dono;
+	private Homem dono;
 	private String raca;
 	private String nome;
 	
-	public Cachorro(String nome, float peso, String habittat, String dono, String raca) {
+	public Cachorro(String nome, float peso, String habittat, String raca) {
 		super("Cachorro", peso, habittat);
 		this.nome = nome;
-		this.dono = dono;
 		this.raca = raca;
 	}
 	
-	/*faltam setters e getters*/
+	public void setDono(Homem dono) {
+		this.dono = dono;
+	}
+	
+	public Homem getDono() {
+		if(dono == null) {
+			System.out.println("Esse cachorro ainda não tem dono definido");
+		}
+		return dono;
+	}
 	
 	public void passearComDono() {
-		System.out.println(nome + " está passeando com " + dono);
+		System.out.println(nome + " de raça " + raca + " está passeando com " + dono.getNome());
 	}
 	
 	public void brincarComDono() {
-		System.out.println(nome + " está brincando com " + dono);
+		System.out.println(nome + " de raça " + raca + " está brincando com " + dono.getNome());
 	}
 }

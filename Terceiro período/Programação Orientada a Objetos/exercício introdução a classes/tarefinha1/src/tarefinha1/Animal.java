@@ -1,5 +1,7 @@
 package tarefinha1;
 
+import java.util.Set;
+
 public class Animal {
 	private String especie;
 	private float peso;
@@ -16,14 +18,14 @@ public class Animal {
 	/*faltam setters e getters*/
 	
 	public void correr() {
-		
+		System.out.println(especie + " está correndo");
 	} 
 	
 	public void dormir() {
-		
+		System.out.println(especie + " está dormindo");
 	}
 	
 	public void comer() {
-		
+		System.out.println(especie + " está correndo");
 	}
 }
