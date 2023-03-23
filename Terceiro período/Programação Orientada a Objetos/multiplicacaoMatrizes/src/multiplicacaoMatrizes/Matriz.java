@@ -36,7 +36,7 @@ public class Matriz {
 		linhas2 = matriz2.length;
 		colunas2 = matriz2[0].length;
 		
-		if(linhas1 == colunas2 && linhas2 == colunas1) { //possível realizar multiplicação
+		if(linhas2 == colunas1) { //possível realizar multiplicação
 			matrizNova = new int[linhas1][colunas2];
 			int soma, k;
 			
