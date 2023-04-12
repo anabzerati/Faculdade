@@ -6,6 +6,7 @@ Implementar as duas árvores e imprimir com os percursos
 #include <stdio.h>
 int main()
 {
+    //criando e preenchendo árvore estática
     static_tree static_tree = calloc(num, sizeof(int));
     static_tree[0] = 8; // é o root.
     static_inserirEsquerda(0, 4, static_tree);
@@ -23,6 +24,7 @@ int main()
     static_inserirEsquerda(6, 13, static_tree);
     static_inserirDireita(6, 15, static_tree);
 
+    //criando e preenchendo árvore dinâmica
     dynamic_tree *root = inserirTree(NULL, 8);
     root = inserirTree(root, 4);
     root = inserirTree(root, 12);
@@ -47,8 +49,7 @@ int main()
     static_percursos(static_tree, 2, 0);
     puts("\nPercurso pós-ordem");
     static_percursos(static_tree, 3, 0);
-    puts("");
-    puts("");
+    printf("\n\n");
     puts("Dinâmicos: ");
     puts("Percurso em pré-ordem");
     percursos(root, 1);

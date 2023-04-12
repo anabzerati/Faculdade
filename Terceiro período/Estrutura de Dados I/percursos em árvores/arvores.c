@@ -11,13 +11,14 @@ dynamic_tree *inserirTree(dynamic_tree *root, int value)
     /*
     Insere ordenando a partir do pai: os menores à esquerda, os maiores à direita
     */
-    if (root == NULL)
+    if (root == NULL) //se não há elemento cria. 
     {
         dynamic_tree *aux = malloc(sizeof(dynamic_tree));
         aux->value = value;
         aux->left = aux->right = NULL;
         return aux;
     }
+    //verifica para qual "lado" o valor deve ir (ordena)
     if (value < root->value)
         root->left = inserirTree(root->left, value);
     else
@@ -54,33 +55,33 @@ void percursos(dynamic_tree *root, int flag)
 
 void static_inserirDireita(int parent, int value, static_tree tree)
 {
-    if (tree == NULL)
+    if (tree == NULL) //verifica se há arvore
         return;
-    if (tree[parent] == 0)
+    if (tree[parent] == 0) //verifica se há pai
     {
         puts("Não tem o nó pai");
         return;
     }
-    int index = 2 * parent + 2;
+    int index = 2 * parent + 2; //cálculo do índice adequado para o filho
     tree[index] = value;
 }
 
 void static_inserirEsquerda(int parent, int value, static_tree tree)
 {
-    if (tree == NULL)
+    if (tree == NULL) //verifica se há arvore
         return;
-    if (tree[parent] == 0)
+    if (tree[parent] == 0) //verifica se há pai
     {
         puts("Não tem o nó pai");
         return;
     }
-    int index = 2 * parent + 1;
+    int index = 2 * parent + 1; //cálculo do índice adequado para o filho
     tree[index] = value;
 }
 
 void static_percursos(static_tree tree, int flag, int index)
 {
-    if (index < 15)
+    if (index < num) //limita índice para recursão
     {
         switch (flag)
         {
