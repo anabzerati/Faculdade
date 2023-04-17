@@ -1,0 +1,13 @@
+package tempo;
+
+public class Tempo {
+	private int horas;
+	private int minutos;
+	private int segundos;
+	
+	public Tempo() {
+		horas = minutos = segundos = 0;
+	}
+	
+	
+}

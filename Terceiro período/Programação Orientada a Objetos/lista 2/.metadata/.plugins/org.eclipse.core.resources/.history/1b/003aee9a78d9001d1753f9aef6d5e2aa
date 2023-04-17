@@ -1,0 +1,61 @@
+package tempo;
+
+public class Tempo {
+	private int horas;
+	private int minutos;
+	private int segundos;
+	
+	public Tempo() {
+		horas = minutos = segundos = 0;
+	}
+	
+	public Tempo(int horas, int minutos, int segundos) {
+		this.horas = horas;
+		this.minutos = minutos;
+		this.segundos = segundos;
+	}
+	
+	public void setHora(int horas) {
+		this.horas = horas;
+	}
+	
+	public int getHoras() {
+		return horas;
+	}
+	
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+	}
+	
+	public int getMinutos() {
+		return minutos;
+	}
+	
+	public void setSegundos(int segundos) {
+		this.segundos = segundos;
+	}
+	
+	public int getSegundos() {
+		return segundos;
+	}
+	
+	public void imprimir() {
+		String horas, minutos, segundos;
+		
+		horas = (this.horas < 10) ? "0" + Integer.toString(this.horas) : Integer.toString(this.horas);
+		minutos = (this.minutos < 10) ? "0" + Integer.toString(this.minutos) : Integer.toString(this.minutos);
+		segundos = (this.segundos < 10) ? "0" + Integer.toString(this.segundos) : Integer.toString(this.segundos);
+		
+		System.out.println(horas + ":" + minutos + ":" + segundos);
+	}
+	
+	public void subtrair(Tempo obj) {
+		int carry = 0;
+		int segundos, minutos, horas;
+		
+		segundos = obj.getSegundos() - this.segundos;
+	}
+	
+	
+	
+}

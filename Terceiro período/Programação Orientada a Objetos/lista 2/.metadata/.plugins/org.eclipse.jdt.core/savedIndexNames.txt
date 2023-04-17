@@ -1,0 +1,6 @@
+INDEX VERSION 1.132+C:\Users\anabe\Documents\faculdade\3 periodo\POO\lista 2\.metadata\.plugins\org.eclipse.jdt.core
+3211975813.index
+2014934365.index
+2926101600.index
+3344830284.index
+1865797976.index
