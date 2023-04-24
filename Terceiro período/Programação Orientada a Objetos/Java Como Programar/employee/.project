@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>commissionEmployee</name>
+	<name>employee</name>
 	<comment></comment>
 	<projects>
-		<project>employee</project>
+		<project>commissionEmployee</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
