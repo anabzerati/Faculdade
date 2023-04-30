@@ -1,0 +1,29 @@
+package contaBancaria;
+
+public class ContaCorrente extends ContaBancaria{
+	private double limite;
+	
+	public ContaCorrente(int numeroDaConta, double saldo, double limite) throws ValorInvalidoException {
+		super(numeroDaConta, saldo);
+		if(limite < 0) {
+			throw new ValorInvalidoException("Valor negativo");
+		}
+		this.limite = limite;
+	}
+	
+	public double getLimite() {
+		return limite;
+	}
+	
+	@Override
+	public void sacar(double valor) {
+		
+	}
+}
+
+/*Passo 3: Crie uma classe chamada ContaCorrente que estende ContaBancaria:
+
+– Sobrescreva o m ́etodo sacar(double valor): Subtrai o valor do saldo, se poss ́ıvel, consi-
+derando o limite dispon ́ıvel. Isto  ́e, caso o saldo n ̃ao seja suficiente, use o valor do limite
+
+dispon ́ıvel (se for suficiente) e deixe o saldo negativo.*/

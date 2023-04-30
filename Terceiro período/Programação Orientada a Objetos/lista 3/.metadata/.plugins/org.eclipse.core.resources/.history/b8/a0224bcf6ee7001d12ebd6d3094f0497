@@ -1,0 +1,51 @@
+package contaBancaria;
+
+import java.util.InputMismatchException;
+
+public class ContaBancaria {
+	private int numeroDaConta;
+	private double saldo;
+	
+	public ContaBancaria(int numeroDaConta, double saldo) {
+		this.numeroDaConta = numeroDaConta;
+		this.saldo = saldo;
+	}
+	
+	public int getNumeroDaConta() {
+		return numeroDaConta;
+	}
+	public void setNumeroDaConta(int numeroDaConta) {
+		this.numeroDaConta = numeroDaConta;
+	}
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	public void depositar(double valor) throws ValorInvalidoException {
+		if(valor < 0) {
+			throw new ValorInvalidoException("Valor negativo");
+		}
+		
+		saldo = saldo + valor;
+	}
+	
+	public void sacar(double valor) throws ValorInvalidoException {
+		if(valor < 0) {
+			throw new ValorInvalidoException("Valor negativo");
+		}
+		if(valor > saldo) {
+			throw new ValorInvalidoException("Valor maior do que saldo");
+		}
+		
+		saldo = saldo - valor;
+	}
+}
+
+/*• Passo 1: Crie uma classe chamada ContaBancaria com os seguintes atributos e m ́etodos:
+– numeroDaConta: int
+– saldo: double
+– depositar(double valor): Adiciona o valor ao saldo.
+– sacar(double valor): Subtrai o valor do saldo, se poss ́ıvel.*/

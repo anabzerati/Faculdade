@@ -1,0 +1,33 @@
+package contaBancaria;
+
+public class ContaPoupanca extends ContaBancaria {
+	private double taxaJuros;
+	
+	public ContaPoupanca(int numeroDaConta, double saldo, double taxaJuros) throws ValorInvalidoException {
+		super(numeroDaConta, saldo);
+		if(taxaJuros < 0) {
+			throw new ValorInvalidoException("Valor negativo");
+		}
+		this.taxaJuros = taxaJuros;
+	}
+	
+	public double getTaxaJuros() {
+		return taxaJuros;
+	}
+	
+	public void aplicarRendimento() {
+		try {
+			depositar(getSaldo() * taxaJuros);
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+/*• Passo 2: Crie uma classe chamada ContaPoupanca que estende ContaBancaria:
+– Adicione um atributo taxaDeJuros: double
+– Crie um construtor que recebe numeroDaConta, saldo e taxaDeJuros como parˆametros e
+use a palavra-chave super para inicializar os atributos da classe ContaBancaria.
+– Adicione um m ́etodo aplicarRendimento(): Multiplica o saldo pelo taxaDeJuros e adiciona
+o resultado ao saldo atual.*/

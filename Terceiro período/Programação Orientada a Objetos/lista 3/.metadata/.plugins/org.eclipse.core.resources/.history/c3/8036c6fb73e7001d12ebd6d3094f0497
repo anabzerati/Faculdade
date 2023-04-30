@@ -1,0 +1,27 @@
+package contaBancaria;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		try {
+			ContaPoupanca poupanca = new ContaPoupanca(1, 100.0, 1.5);
+			ContaCorrente corrente = new ContaCorrente(2, 100.0, 200.0);
+			
+			ContaBancaria[] contas = new ContaBancaria[2];
+			contas[0] = poupanca;
+			contas[1] = corrente;
+			
+			boolean cont = true;
+			while(cont) {
+				
+			}
+		} catch (ValorInvalidoException e) {
+			System.out.println("Erro: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+}
+
+/*
+– Percorra o array e chame o m ́etodo sacar() e depositar() de cada conta, utilizando casting
+quando necess ́ario para acessar os m ́etodos espec ́ıficos de cada tipo de conta.*/

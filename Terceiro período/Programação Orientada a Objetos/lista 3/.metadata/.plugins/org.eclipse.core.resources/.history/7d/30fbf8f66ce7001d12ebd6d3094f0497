@@ -1,0 +1,21 @@
+package calculadoraFigurasGeometricas;
+
+public class main {
+	public static void main(String[] args) {
+		FormaGeometrica[] figuras = new FormaGeometrica[4];
+		figuras[0] = new Quadrado(2);
+		figuras[1] = new Retangulo(2,3);
+		figuras[2] = new Circulo(4);
+		figuras[3] = new TrianguloEquilatero(3,4);
+		
+		for(FormaGeometrica atual : figuras) {
+			System.out.println("Forma: " + atual.getClass().getCanonicalName());
+		}
+	}
+}
+
+/*Calculadora de formas geom ́etricas: Crie uma classe chamada FormaGeometrica com m ́etodos abs-
+tratos para calcular a  ́area e o per ́ımetro. Crie subclasses como Circulo, Retangulo, Triangulo, etc.,
+
+e implemente os m ́etodos espec ́ıficos para cada forma. Utilize polimorfismo para calcular e exibir a
+ ́area e o per ́ımetro de diferentes formas geom ́etricas.*/

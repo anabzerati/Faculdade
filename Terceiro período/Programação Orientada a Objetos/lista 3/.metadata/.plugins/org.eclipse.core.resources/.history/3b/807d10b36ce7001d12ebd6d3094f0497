@@ -1,0 +1,16 @@
+package calculadoraFigurasGeometricas;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+/*Calculadora de formas geom ́etricas: Crie uma classe chamada FormaGeometrica com m ́etodos abs-
+tratos para calcular a  ́area e o per ́ımetro. Crie subclasses como Circulo, Retangulo, Triangulo, etc.,
+
+e implemente os m ́etodos espec ́ıficos para cada forma. Utilize polimorfismo para calcular e exibir a
+ ́area e o per ́ımetro de diferentes formas geom ́etricas.*/
