@@ -1,0 +1,18 @@
+package cadastroAlunos;
+
+public class Aluno {
+	private String matricula;
+	private String nome;
+	private double nota;
+	
+	public Aluno(String matricula, String nome, double nota) {
+		this.matricula = matricula;
+		this.nome = nome;
+		this.nota = nota;
+	}
+}
+
+/*Atributo String matricula;
+• Atributo String nome;
+• Atributo double nota;
+• M ́etodo void validarNota(double nota); (lan ̧ca exce ̧c ̃oes personalizadas)*/

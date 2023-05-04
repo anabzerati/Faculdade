@@ -1,0 +1,11 @@
+package reservaPassagensAereas;
+
+import java.time.LocalDate;
+
+public interface Passagem {
+	String getCodigo();
+	double getPreco();
+	LocalDate getDataHora();
+	String getOrigem();
+	String getDestino();
+}

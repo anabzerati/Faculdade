@@ -1,0 +1,5 @@
+package reservaPassagensAereas;
+
+public abstract class PassagemAbstrata {
+
+}

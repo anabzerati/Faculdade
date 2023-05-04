@@ -1,0 +1,43 @@
+package cadastroAlunos;
+
+import java.util.ArrayList;
+
+public class CadastroAlunos {
+	private ArrayList<Aluno> alunos = new ArrayList<>();
+	
+	public void adicionarAluno(Aluno aluno) {
+		alunos.add(aluno);
+	}
+
+	public Aluno buscarAluno(String matricula) throws AlunoInexistenteException {
+		for(Aluno a : alunos) {
+			if(a.getMatricula().equals(matricula)) {
+				return a;
+			}
+		}
+		throw new AlunoInexistenteException("Matrícula não cadastrada");
+	}
+	
+	public void removerAluno(String codigo) {
+		try {
+			Aluno remover = buscarAluno(codigo);
+			alunos.remove(remover);
+		} catch(AlunoInexistenteException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void listarAlunos() {
+		System.out.println("Alunos: ");
+		for(Aluno a : alunos) {
+			System.out.printf("%s - %s", a.getNome(), a.getMatricula());
+		}
+	}
+	
+}
+
+/*Atributo List<Aluno> alunos;
+• M ́etodo void adicionarAluno(Aluno aluno);
+• M ́etodo void removerAluno(String matricula); (lan ̧ca exce ̧c ̃ao personalizada)
+• M ́etodo void listarAlunos();
+• M ́etodo Aluno buscarAluno(String matricula); (lan ̧ca exce ̧c ̃ao personalizada)*/

@@ -1,0 +1,5 @@
+package formasGeomatricas;
+
+public interface FormaGeomatrica {
+
+}

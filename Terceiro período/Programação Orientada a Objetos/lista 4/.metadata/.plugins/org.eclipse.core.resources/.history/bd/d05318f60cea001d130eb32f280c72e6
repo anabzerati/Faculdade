@@ -1,0 +1,5 @@
+package cadastroAlunos;
+
+public class NotaInvalidaException extends Exception {
+
+}

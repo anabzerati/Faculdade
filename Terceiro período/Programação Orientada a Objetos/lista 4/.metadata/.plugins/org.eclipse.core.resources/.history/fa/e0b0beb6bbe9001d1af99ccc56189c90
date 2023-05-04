@@ -1,0 +1,16 @@
+package controleEstoque;
+
+public abstract class ProdutoAbstrato implements Produto {
+	private String nome;
+	private double preco;
+	private int quantidade;
+	private String id;
+	
+	public ProdutoAbstrato(String nome, double preco, int quantidade, String id) {
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;
+		this.id = id;
+	}
+
+}

@@ -1,0 +1,6 @@
+package controleEstoque;
+
+public class ControleEstoque {
+	private List<ProdutoAbstrato> produtos;
+
+}

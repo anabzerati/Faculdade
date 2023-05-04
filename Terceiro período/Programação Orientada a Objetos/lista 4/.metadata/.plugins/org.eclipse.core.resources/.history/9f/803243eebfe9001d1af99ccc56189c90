@@ -1,0 +1,33 @@
+package controleEstoque;
+
+import java.time.LocalDate;
+
+public class ProdutoPerecivel extends ProdutoAbstrato {
+	private LocalDate dataAtual;
+	private LocalDate dataVencimento;
+	
+	public ProdutoPerecivel(String nome, double preco, int quantidade, String id, LocalDate dataVencimento) {
+		super(nome, preco, quantidade, id);
+		this.dataAtual = LocalDate.now();
+		this.dataVencimento = dataVencimento;
+	}
+	
+	public boolean estaVencido() {
+		if(dataAtual.isAfter(dataVencimento)) {
+			return true;
+		}
+		return false;
+	}
+	
+	private double calcularDesconto() {
+		if(dataVencimento.minusMonths(1).isAfter(dataAtual)) {
+			return 5;
+		} 
+		return 0;
+	}
+	
+	@Override
+	public double getPreco() {
+		
+	}
+}

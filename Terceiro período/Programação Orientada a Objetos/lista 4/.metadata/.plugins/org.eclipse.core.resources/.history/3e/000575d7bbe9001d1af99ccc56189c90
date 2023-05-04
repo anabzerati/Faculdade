@@ -1,0 +1,43 @@
+package controleEstoque;
+
+import java.util.InputMismatchException;
+
+public abstract class ProdutoAbstrato implements Produto {
+	private String nome;
+	private double preco;
+	private int quantidade;
+	private String id;
+	
+	public ProdutoAbstrato(String nome, double preco, int quantidade, String id) {
+		if(preco < 0) {
+			throw new InputMismatchException("Valor negativo");
+		}
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	
+
+}

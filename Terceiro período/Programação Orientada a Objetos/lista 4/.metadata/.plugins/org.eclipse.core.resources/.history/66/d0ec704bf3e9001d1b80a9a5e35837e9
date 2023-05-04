@@ -1,0 +1,5 @@
+package reservaPassagensAereas;
+
+public interface Passagem {
+
+}

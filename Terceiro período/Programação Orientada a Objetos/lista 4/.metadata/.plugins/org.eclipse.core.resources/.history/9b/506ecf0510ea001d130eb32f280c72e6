@@ -1,0 +1,27 @@
+package cadastroAlunos;
+
+import java.util.ArrayList;
+
+public class CadastroAlunos {
+	private ArrayList<Aluno> alunos = new ArrayList<>();
+	
+	public void adicionarAluno(Aluno aluno) {
+		alunos.add(aluno);
+	}
+
+	public Aluno buscarAluno(String matricula) {
+		for(Aluno a : alunos) {
+			if(a.getMatricula().equals(matricula)) {
+				return a;
+			}
+		}
+		throw new AlunoInexistenteException("Matrícula não cadastrada");
+	}
+	
+}
+
+/*Atributo List<Aluno> alunos;
+• M ́etodo void adicionarAluno(Aluno aluno);
+• M ́etodo void removerAluno(String matricula); (lan ̧ca exce ̧c ̃ao personalizada)
+• M ́etodo void listarAlunos();
+• M ́etodo Aluno buscarAluno(String matricula); (lan ̧ca exce ̧c ̃ao personalizada)*/

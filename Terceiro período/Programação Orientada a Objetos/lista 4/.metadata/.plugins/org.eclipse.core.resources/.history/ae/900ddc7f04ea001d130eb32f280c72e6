@@ -1,0 +1,15 @@
+package reservaPassagensAereas;
+
+import java.time.LocalDateTime;
+
+public abstract class PassagemAbstrata {
+	private String codigo;
+	private double preco;
+	private LocalDateTime dataHora;
+	private String origem;
+	private String destino;
+	
+	
+	
+	public abstract double calcularPrecoFinal();
+}

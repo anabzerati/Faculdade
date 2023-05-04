@@ -1,0 +1,34 @@
+package reservaPassagensAereas;
+
+import java.util.ArrayList;
+
+public class SistemaReservas {
+	private ArrayList<Passagem> passagens = new ArrayList<>();
+	
+	public void adicionarPassagem(Passagem passagem) {
+		passagens.add(passagem);
+	}
+	
+	Passagem buscarPassagem(String codigo) {
+		for(Passagem p : passagens) {
+			if(p.getCodigo().equals(codigo)) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
+	public void removerPassagem(String codigo) {
+		Passagem remover = buscarPassagem(codigo);
+		
+		if(remover == null) {
+			return;
+		}
+	}
+}
+
+/*M ́etodo void adicionarPassagem(Passagem passagem);
+• M ́etodo void removerPassagem(String codigo);
+• M ́etodo void listarPassagens();
+• M ́etodo Passagem buscarPassagem(String codigo);
+• M ́etodo double calcularPrecoFinal(String codigo);*/

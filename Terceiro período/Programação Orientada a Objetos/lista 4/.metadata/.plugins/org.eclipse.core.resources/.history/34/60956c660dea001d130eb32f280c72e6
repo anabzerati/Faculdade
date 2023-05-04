@@ -1,0 +1,10 @@
+package cadastroAlunos;
+
+public class NotaInvalidaException extends Exception {
+	private static final long serialVersionUID = 1L;
+	
+	public void message(String message) {
+		System.out.println("Erro: " + message);
+	}
+
+}

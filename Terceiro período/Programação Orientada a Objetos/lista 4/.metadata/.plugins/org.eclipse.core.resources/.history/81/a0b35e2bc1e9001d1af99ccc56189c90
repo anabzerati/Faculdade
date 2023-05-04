@@ -1,0 +1,14 @@
+package controleEstoque;
+
+import java.util.ArrayList;
+
+public class ControleEstoque {
+	private ArrayList<ProdutoAbstrato> produtos = new ArrayList<>();
+	
+	public void adicionarProduto(ProdutoAbstrato produto) {
+		produtos.add(produto);
+	}
+	
+	
+
+}
