@@ -1,0 +1,4 @@
+Vá para o diretório do projeto.
+Dê o comando "cmake ."
+após carregar, dê apenas "make"
+isso criará um executável com o nome do projeto "atividade2", basta executá-lo normalmente
