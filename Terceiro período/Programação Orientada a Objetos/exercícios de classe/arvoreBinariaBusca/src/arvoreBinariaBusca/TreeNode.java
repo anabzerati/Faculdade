@@ -1,44 +1,15 @@
 package arvoreBinariaBusca;
 
-public class TreeNode <T extends Comparable<T>> implements Comparable<TreeNode<T>>{
-	private T dado;
-	private TreeNode<T> esq;
-	private TreeNode<T> dir;
-	
-	public TreeNode(T dado) {
-		this.dado = dado;
-		esq = null;
-		dir = null;
-	}
-	
-	public T get() {
-		return dado;
-	}
+public class TreeNode <T>{
+	 T dado;
+	 TreeNode<T> esq;
+     TreeNode<T> dir;
 
-	public void set(T dado) {
-		this.dado = dado;
-	}
-
-	public void setEsq(TreeNode<T> esq) {
-		this.esq = esq;
-	}
-	
-	public TreeNode<T> getEsq(){
-		return esq;
-	}
-
-	public void setDir(TreeNode<T> dir) {
-		this.dir = dir;
-	}
-	
-	public TreeNode<T> getDir(){
-		return dir;
-	}
-	
-    @Override
-    public int compareTo(TreeNode<T> o) {
-        return get().compareTo(o.get());
-    }
+     TreeNode(T dado) {
+         this.dado = dado;
+         esq = null;
+         dir = null;
+     }
 
 }
 
