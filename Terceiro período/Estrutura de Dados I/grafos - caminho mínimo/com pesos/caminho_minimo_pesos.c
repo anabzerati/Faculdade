@@ -1,26 +1,23 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "grafo.h"
 #include "fila.h"
-
-//ler arquivo e guardar em grafo
-//transformar grafo em matriz de incidencia
-
 
 //------------------------------------------------------
 //Principal//matriz A (de adj.): representa as conexões entre as cidades 0,...,N-1, 
 //vetor 'dist': dist[i] é a distância da cidade fixada 'c' até cada cidade 'i'
 
 int main() {
-	//Inicialização da matriz com as cidades interconectadas
-	int A[N][N] = { {0,1,0,1,1}, {0,0,1,0,0}, {0,0,0,0,1}, {0,0,1,0,1}, {0,0,0,1,0} };
-	int dist[N]; //vai guardar a menor distância de c para o resto
+	int **A; //vai guardar a matriz de adjacência
+	int dist[5]; //vai guardar a menor distância de c para o resto
 	int i, j, c = 0; //c é o vértice inicial (calcula-se caminho mínimo dele pros demais)
 	fila F;
-	
+
+	leArquivo("digrafo.txt", A); //lê dados de arquivo, cria grafo e matriz de adjacência
+
 	for (j=0; j<N; j++)  
-	    dist[j] = N; //começa com a maior distância, dist[j], para todo j
+	    dist[j] = 1000; //começa com a maior distância, dist[j], para todo j
     
 	dist[c] = 0; //distância de c para ele mesmo (= 0)
     Definir(&F); //cria fila
@@ -30,12 +27,15 @@ int main() {
     while (!Vazia(&F)) 
 	{ 
        Remover(&F,&i); //Remove da fila (i é o elemento corrente a partir daqui)
-       for (j=0; j<N; j++)
-          if (A[i][j] == 1 && dist[j] >= N) //anda toda a linha de i da matriz. Se i tem conexãoo com j (A[i][j] == 1) e j ainda não tiver sido checado
+
+       for (j=0; j<N; j++){
+          if (A[i][j] != 0 && (dist[j] > dist[i] + A[i][j])) //anda toda a linha de i da matriz. Se i tem conexãoo com j (A[i][j] == 1) e j ainda não tiver sido checado
 		  {
-             dist[j] = dist[i] + 1; //está um elemento mais distante de i (se tivesse peso, dist[i] + A[i][j])
-             Inserir(&F,j);
+			printf("entrou aqui");
+			dist[j] = dist[i] + A[i][j]; //está um elemento mais distante de i (acresce pelo peso da aresta);
+			Inserir(&F, j);
           }
+	   }
     }
 	
 	//Imprime vetor de distâncias de 'c' para as demais cidades 'i'

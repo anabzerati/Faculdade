@@ -1,7 +1,5 @@
 #include "fila.h"
 
-
-
 //Operações da fila
 //------------------------------------------------------
 //Cria uma fila vazia

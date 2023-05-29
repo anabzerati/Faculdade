@@ -18,9 +18,8 @@ void imprimeNo(No n);
 
 Grafo criaGrafo();
 
-void leArquivo(Grafo G, const char *filename);
+void leArquivo(Grafo G, const char *filename); 
 
 void imprimeGrafo(Grafo G);
 
-void criaMatrizIncidencia(Grafo G, int **matriz); //falta fazer
 //----------------------------------
