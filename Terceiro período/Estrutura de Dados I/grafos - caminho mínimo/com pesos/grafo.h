@@ -18,7 +18,7 @@ void imprimeNo(No n);
 
 Grafo criaGrafo();
 
-void leArquivo(const char *filename, int **matriz); //lê arquivo, cria grafo e preenche matriz de adjacência
+void leArquivo(const char *filename, int ***matriz); //lê arquivo, cria grafo e preenche matriz de adjacência
 
 void imprimeGrafo(Grafo G);
 

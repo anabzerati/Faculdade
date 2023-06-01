@@ -48,11 +48,11 @@ Grafo criaGrafo(){
 }
 
 //Função para efetuar a leitura do grafo via arquivo
-void leArquivo(const char *filename, int **matriz){ //const para não poder alterar 
+void leArquivo(const char *filename, int ***matriz){ //const para não poder alterar 
     FILE *fp;
     int bsize = 20; //máximo de caracteres de uma linha
     int n, o, d, v, i, j;
-    
+
     char buffer[bsize];
     fp = fopen(filename,"r");
 	
@@ -61,11 +61,11 @@ void leArquivo(const char *filename, int **matriz){ //const para não poder alte
     sscanf(buffer,"%d", &n); //salva o numero de vertices/nós
 
 	//alocando matriz e inicializando com zero
-	matriz = malloc(n * sizeof(int));
+	(*matriz) = malloc(n * sizeof(int *));
 	for(i = 0; i < n; i ++){
-		matriz[i] = malloc(n * sizeof(int));
+		(*matriz)[i] = malloc(n * sizeof(int));
 		for(j = 0; j < n; j ++){
-			matriz[i][j] = 0;
+			(*matriz)[i][j] = 0;
 		}
 	}
 
@@ -74,11 +74,10 @@ void leArquivo(const char *filename, int **matriz){ //const para não poder alte
         fgets(buffer,bsize, fp); //pega linha e guarda em buffer
         sscanf(buffer,"%d %d %d", &o, &d, &v); //pega de buffer e guarda nas variáveis auxiliares
 
-		matriz[o][d] = v;
+		(*matriz)[o][d] = v;
     }
 
     fclose(fp);
-    return;
 }
 
 void imprimeGrafo(Grafo G){ //imprime grafo a partir das listas de adjacência
