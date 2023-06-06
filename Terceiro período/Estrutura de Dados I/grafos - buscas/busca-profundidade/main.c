@@ -4,8 +4,8 @@
 int tempo; //variável global para armazenar tempo
 
 int leArquivo(const char *filename, int ***matriz);
-void DSF(int numNos, int matriz[numNos][numNos], int cor[numNos], int dist[numNos]);
-void DSF_visit(int i, int numNos, int *matriz[numNos][numNos], int *cor[numNos], int *dist[numNos]);
+void DSF(int numNos, int **matriz, int cor[numNos], int dist[numNos]);
+void DSF_visit(int i, int numNos, int ***matriz, int *cor[numNos], int *dist[numNos]);
 
 int main(){
     int **A; //vai ser matriz adjacente do arquivo
@@ -55,7 +55,7 @@ int leArquivo(const char *filename, int ***matriz){ //const para não poder alte
     return n;
 }
 
-void DSF(int numNos, int matriz[numNos][numNos], int cor[numNos], int dist[numNos]){
+void DSF(int numNos, int **matriz, int cor[numNos], int dist[numNos]){
     int i;
     tempo = 0;
 
@@ -66,7 +66,7 @@ void DSF(int numNos, int matriz[numNos][numNos], int cor[numNos], int dist[numNo
     }
 }
 
-void DSF_visit(int i, int numNos, int *matriz[numNos][numNos], int *cor[numNos], int *dist[numNos]){
+void DSF_visit(int i, int numNos, int ***matriz, int *cor[numNos], int *dist[numNos]){
     int j;
 
     *(cor[i]) = 1; //cinza
@@ -79,5 +79,5 @@ void DSF_visit(int i, int numNos, int *matriz[numNos][numNos], int *cor[numNos],
         }
     }
 
-    *(cor[i]) == 2; //preto
+    *(cor[i]) = 2; //preto
 }
