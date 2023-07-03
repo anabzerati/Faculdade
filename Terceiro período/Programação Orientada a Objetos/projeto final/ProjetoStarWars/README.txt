@@ -1,0 +1,1 @@
+senha de acesso na tela de login: OBI_WAN_KENOBI

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjetoStarWars:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjetoStarWars_jar</output-path>
+    <root id="archive" name="ProjetoStarWars.jar">
+      <element id="module-output" name="ProjetoStarWars" />
+      <element id="module-output" name="scr" />
+    </root>
+  </artifact>
+</component>
