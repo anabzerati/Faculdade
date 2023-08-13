@@ -19,21 +19,13 @@ int main(){
         printf("Linha %d: \n", i + 1);
         for(j = 0; j < n; j ++){
             printf("Coluna %d: ", j + 1);
-            scanf("%d", &matriz[i][j]);
+            scanf("%lf", &matriz[i][j]);
         }
     }
 
     /*Procedimento: para cada coluna, reslizar o pivoteamento (achar maior módulo e trocar linhas), calcular o multiplicador e realizar a operação para toda a linha*/
     for(i = 0; i < n - 1; i ++){
         pivoteamento(n, matriz, i);
-
-        printf("Após pivoteamento: \n");
-    for(int l = 0; l < n;  l++){
-        for(int m = 0; m < n; m ++){
-            printf("%d ", matriz[l][m]);
-        }
-        printf("\n");
-    }
 
         for(j = i + 1; j < n; j ++){
             double multiplicador = (double)matriz[j][i] / matriz[i][i];
@@ -42,22 +34,14 @@ int main(){
                 matriz[j][k] = matriz[j][k] - (matriz[i][k] * multiplicador);
             }
 
-            //matriz[j][i] = multiplicador;
+            matriz[j][i] = multiplicador; //armazenando multiplicador - método compacto
         }
-
-        printf("Após escalonamento da coluna: \n");
-    for(int l = 0; l < n;  l++){
-        for(int m = 0; m < n; m ++){
-            printf("%d ", matriz[l][m]);
-        }
-        printf("\n");
-    }
     }
 
-    printf("Matriz escalonada: \n");
+    printf("Matriz escalonada e com multiplicadores: \n");
     for(i = 0; i < n; i ++){
         for(j = 0; j < n; j ++){
-            printf("%d ", matriz[i][j]);
+            printf("%lf ", matriz[i][j]);
         }
         printf("\n");
     }
@@ -75,8 +59,6 @@ void pivoteamento(int n, double matriz[][n], int i) {
             maior = j;
         }
     }
-
-    printf("Maior valor da coluna %d = %lf\n", i + 1, fabs(matriz[maior][i]));
 
     //se o índice for diferente de i, realiza troca das linhas
     if (maior != i) {
