@@ -12,7 +12,7 @@ char* buscaRegistro(char* nomeIndice, char* nomeArquivo, int chave);
 struct indice *buscaBinaria(struct indice *registros, int quantidadeRegistros, int chave);
 
 int main() {
-    char* resultado = search_record("index.dat", "dados.dat", 1);
+    char* resultado = buscaRegistro("index.dat", "dados.dat", 1);
     printf("%s\n", resultado);
 
     free(resultado);
