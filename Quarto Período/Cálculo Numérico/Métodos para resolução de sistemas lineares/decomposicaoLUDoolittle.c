@@ -8,9 +8,11 @@ A partir de A, conhecendo que L é uma matriz triangular inferior (com diagonal 
 
 void inicializaMatriz(int n, float matriz[n][n]);
 void imprimeMatriz(int n, float matriz[n][n]);
+void resolveSistema(int n, float L[n][n], float U[n][n]);
 
 int main(){
-    int i, j, k, n, soma = 0;
+    int i, j, k, n;
+    float soma = 0;
 
     printf("Ordem da matriz: ");
     scanf("%d", &n);
@@ -30,14 +32,14 @@ int main(){
     inicializaMatriz(n, U);
 
     for(i = 0; i < n; i ++){
-        for(j = i; j < n; j ++){ //linha i e coluna j
+        for(j = i; j < n; j ++){ //linha i e coluna j (j começa de i para não refazer cálculos)
             soma = 0;
 
-            for(k = 0; k < i; k ++){ //somatório
+            for(k = 0; k < i; k ++){ //somatório (até i pois o resto é zero)
                 soma = soma + (L[i][k] * U[k][j]);
             }
             
-            U[i][j] = A[i][j] - soma;
+            U[i][j] = A[i][j] - soma; // seria dividido por L[j][j], que é 1
         }
 
         for(j = i; j < n; j ++){ //linha j coluna i
@@ -60,6 +62,8 @@ int main(){
 
     printf("\n Matriz U:\n");
     imprimeMatriz(n, U);
+
+    resolveSistema(n, L, U);
 
     return 0;
 }
@@ -85,4 +89,50 @@ void imprimeMatriz(int n, float matriz[n][n]){
 
         printf("\n");
     }
+}
+
+void resolveSistema(int n, float L[n][n], float U[n][n]){
+    int i, j;
+    float soma;
+    float B[n], Y[n], X[n];
+
+    printf("\n\nSistema A*X = B");
+    printf("\nInsira os valores de B:");
+
+    for(i = 0; i < n; i ++){
+        printf("B[%d] = ", i);
+        scanf("%f", &B[i]);
+    }
+
+    /*Procedimento:
+        L * Y = B - como se "escalonássemos" B 
+        U * X = Y - "A escalonado" * X = "B escalonado"
+    */
+
+   //L * Y = B
+   Y[0] = B[0] / L[0][0]; 
+    for(i = 1; i < n; i ++){
+        soma = 0;
+        for(j = 0; j < i; j ++){
+            soma = soma + L[i][j] * Y[j];
+        }
+
+        Y[i] = B[i] - soma;
+    }
+
+    //U * X = Y
+    X[n-1] = Y[n-1] / U[n-1][n-1];
+    for(i = n-2; i >=0; i --){
+        soma = 0;
+        for(j = i+1; j < n; j ++){
+            soma = soma + U[i][j] * X[j];
+        }
+
+        X[i] = (Y[i] - soma) / U[i][i];
+    }
+
+    for(i = 0; i < n; i ++){
+        printf("%.2f ", X[i]);
+    }
+
 }
