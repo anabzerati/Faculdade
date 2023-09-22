@@ -1,0 +1,8 @@
+# Configuração do GDB
+
+# Exibir backtrace completo ao entrar em um segfault
+set backtrace full
+
+# Habilitar cores para saída do GDB
+set term colors on
+

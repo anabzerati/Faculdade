@@ -1,0 +1,2 @@
+gcc -o teste src/main.c src/arquivos.c src/auxiliares.c src/interacao.c
+./teste
