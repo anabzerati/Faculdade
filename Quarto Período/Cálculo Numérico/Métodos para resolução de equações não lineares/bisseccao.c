@@ -18,14 +18,14 @@ int main(){
     printf("Insira a ordem de f(x): ");
     scanf("%d", &ordem);
 
-    float coeficientes[ordem];
-    printf("\nInsira os coeficientes: ");
-    for(i = ordem; i > 0; i --){
-        printf("x%d: ", ordem+1);
-        scanf("%f", &coeficientes[ordem]);
+    float coeficientes[ordem + 1];
+    printf("\nInsira os coeficientes:\n");
+    for(i = ordem; i >= 0; i --){
+        printf("x%d: ", i);
+        scanf("%f", &coeficientes[i]);
     }
 
-    printf("\nIntervalo [a, b]");
+    printf("\nIntervalo [a, b]\n");
     printf("a = ");
     scanf("%f", &a);
     printf("b = ");
@@ -35,15 +35,15 @@ int main(){
     scanf("%lf", &precisao);
 
     //verificação de zero no intervalo [a, b]
-    float multiplicacao = multiplica(ordem, coeficientes, a, b);
+    float multiplicacao = multiplica(ordem + 1, coeficientes, a, b);
     if(multiplicacao < 0){ //há 0 no intervalo
         quantIteracoes = calculaIteracao(a, b, precisao);
 
-        float x = bisseccao(ordem, coeficientes, a, b, quantIteracoes);
+        float x = bisseccao(ordem + 1, coeficientes, a, b, quantIteracoes);
 
         printf("Aproximação do zero: %f", x);
     } else{
-        printf("Não há zero de função no intervalo [%d, %d].", a, b);
+        printf("Não há zero de função no intervalo [%f, %f].", a, b);
     }
 
     return 0;
@@ -54,7 +54,7 @@ float aplicaFuncao(int n, float coef[n], float x){
     float res = coef[0];
 
     for(i = 1; i < n; i ++){
-        res = res + x * pow(coef[i], i);
+        res = res + coef[i] * pow(x, i);
     }
 
     return res;
@@ -71,7 +71,7 @@ float multiplica(int n, float coef[n], float X1, float X2){
 }
 
 int calculaIteracao(float a, float b, long precisao){
-    return log2((fabs(b) - fabs(a)) / precisao) / ln(2);
+    return log2((fabs(b) - fabs(a)) / precisao) / log(2);
 }
 
 float bisseccao(int n, float coef[n], float a, float b, int quantIteracoes){
